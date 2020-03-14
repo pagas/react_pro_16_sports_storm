@@ -3,7 +3,8 @@ import {ProductList} from './ProductList';
 import {CategoryNavigation} from './CategoryNavigation';
 
 const Shop = (props) => {
-    const {categories, products} = props;
+    const {categories = [], products} = props;
+
     return <div className="container-fluid">
         <div className="row">
             <div className="col bg-dark text-white">

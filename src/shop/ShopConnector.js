@@ -7,7 +7,6 @@ import {Shop} from "./Shop";
 
 
 const mapStateToProps = (dataStore) => {
-    debugger;
     return ({
         ...dataStore
     });
@@ -25,13 +24,12 @@ const filterProducts = (products = [], category) =>
 export const ShopConnector = connect(mapStateToProps, mapDispatchToProps)(
     class extends Component {
         render = () => {
-            const prop = this.props;
-            debugger;
+            const {products} = this.props;
             return (
                 <Switch>
                     <Route path="/shop/products/:category?" render={(routeProps) =>
                         <Shop {...this.props} {...routeProps}
-                              products={filterProducts(this.props.products, routeProps.match.params.category)}>
+                              products={filterProducts(products, routeProps.match.params.category)}>
                         </Shop>
                     }/>
 
