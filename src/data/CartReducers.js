@@ -1,6 +1,6 @@
 import {ActionTypes} from "./Types";
 export const CartReducer = (storeDate, action) => {
-    let newStore = initCart();
+    let newStore = {cart:[], cartItems: 0, cartPrice: 0, ...storeDate};
 
     switch (action.type) {
         case ActionTypes.CART_ADD: {
@@ -17,7 +17,7 @@ export const CartReducer = (storeDate, action) => {
         }
         case ActionTypes.CART_UPDATE: {
             const {product, quantity} = action.payload;
-            newStore.cart = newStore.cartItems.map(item => {
+            newStore.cart = newStore.cart.map(item => {
                if(item.product.id === product.id) {
                    const diff = quantity - item.quantity;
                    newStore.cartItems += diff;
@@ -38,12 +38,8 @@ export const CartReducer = (storeDate, action) => {
             return newStore;
         }
         case ActionTypes.CART_CLEAR:
-            return initCart();
+            return {...storeDate, cart:[], cartItems: 0, cartPrice: 0};
         default :
             return storeDate || {};
-    }
-
-    function initCart() {
-        return {...storeDate, cart:[], cartItems: 0, cartPrice: 0};
     }
 }
