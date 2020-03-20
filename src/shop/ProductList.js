@@ -1,7 +1,7 @@
 import React from 'react';
 
 const ProductList = (props) => {
-    const {products} = props;
+    const {products, addToCart} = props;
     if (products == null || products.length === 0) {
         return <h5 className="p-2">No Products</h5>
     }
@@ -15,6 +15,9 @@ const ProductList = (props) => {
             </h4>
             <div className="card-text bg-white p-1">
                 {product.description}
+                <button className="btn btn-success btn-sm float-right" onClick={ () => addToCart(product)}>
+                    Add To Cart
+                </button>
             </div>
         </div>
     );

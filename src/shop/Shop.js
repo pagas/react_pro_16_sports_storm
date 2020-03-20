@@ -1,9 +1,10 @@
 import React from 'react';
 import {ProductList} from './ProductList';
 import {CategoryNavigation} from './CategoryNavigation';
+import {CartSummary} from "./CartSummary";
 
 const Shop = (props) => {
-    const {categories = [], products} = props;
+    const {categories = [], products, addToCart} = props;
 
     return <div className="container-fluid">
         <div className="row">
@@ -11,6 +12,7 @@ const Shop = (props) => {
                 <div className="navbar-brand">
                     SPORTS STORE
                 </div>
+                <CartSummary {...props}/>
             </div>
         </div>
         <div className="row">
@@ -18,7 +20,7 @@ const Shop = (props) => {
                 <CategoryNavigation baseUrl="/shop/products" categories={categories}/>
             </div>
             <div className="col-9 p-2">
-                <ProductList products={products}/>
+                <ProductList products={products} addToCart={addToCart}/>
             </div>
         </div>
     </div>
