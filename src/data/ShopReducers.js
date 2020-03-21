@@ -2,9 +2,12 @@ import {ActionTypes} from "./Types";
 export const ShopReducer = (storeDate, action) => {
     switch (action.type) {
         case ActionTypes.DATA_LOAD:
+            const {data, total, params, dataType} = action.payload;
             return {
                 ...storeDate,
-                [action.payload.dataType] : action.payload.data
+                [dataType] : data,
+                [`${dataType}_total`] : total,
+                [`${dataType}_params`] : params
             };
         default :
             return storeDate || {};
