@@ -4,7 +4,7 @@ import { ToggleLink} from "./ToggleLink";
 const CategoryNavigation = (props) => {
     const {baseUrl, categories} = props;
     return <React.Fragment>
-        <ToggleLink to={baseUrl} exact={true}>All</ToggleLink>
+        <ToggleLink to={`${baseUrl}/all`} exact={false}>All</ToggleLink>
 
         {categories.map(category =>
             <ToggleLink to={`${baseUrl}/${category.toLowerCase()}`} key={category}>
