@@ -27,7 +27,7 @@ export class Checkout extends Component {
     };
 
     handleCancel = () => {
-        this.props.history.push('/shop/thanks');
+        this.props.history.push('/shop/cart');
     };
 
     render() {

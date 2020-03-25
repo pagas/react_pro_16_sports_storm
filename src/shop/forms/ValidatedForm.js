@@ -52,7 +52,7 @@ export class ValidatedForm extends Component {
                 <button className="btn btn-secondary m-1" onClick={this.props.cancelCallback}>
                     {this.props.cancelText || "Cancel"}
                 </button>
-                <button className="btn btn-secondary m-1" onClick={this.handleSubmit}>
+                <button className="btn btn-primary m-1" onClick={this.handleSubmit}>
                     {this.props.submitText || "Submit"}
                 </button>
             </div>
