@@ -1,7 +1,7 @@
 import React from "react";
 import {Route, Link} from "react-router-dom";
 
-const ToggleLink = (props) => {
+const ToggleLink = (props:any) => {
     const {to, exact,
         className,
         activeClass = 'btn-primary',
@@ -14,11 +14,7 @@ const ToggleLink = (props) => {
         return <Link to={to} className={combinedClasses}>
             {children}
         </Link>
-
-
-    }}>
-
-    </Route>
+    }}/>
 };
 
 export {ToggleLink};
