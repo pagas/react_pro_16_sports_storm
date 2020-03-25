@@ -3,7 +3,7 @@ import {RestDataSource} from "./RestDataSource";
 
 const newDataSource = new RestDataSource();
 
-export const loadData = (dataType, params) => ({
+export const loadData = (dataType:string, params:any) => ({
     type: ActionTypes.DATA_LOAD,
     payload: newDataSource.GetData(dataType, params).then(response => ({
         dataType,
@@ -13,17 +13,17 @@ export const loadData = (dataType, params) => ({
     }))
 });
 
-export const setPageSize = (newSize) => ({
+export const setPageSize = (newSize:number) => ({
     type: ActionTypes.DATA_SET_PAGE_SIZE,
     payload: newSize
 });
 
-export const setSortProperty = (newProp) => ({
+export const setSortProperty = (newProp:string) => ({
     type: ActionTypes.DATA_SET_SORT_PROPERTY,
     payload: newProp
 });
 
-export const placeOrder = (order) => ({
+export const placeOrder = (order:any) => ({
     type: ActionTypes.DATA_STORE,
     payload: newDataSource.StoreData(DataTypes.ORDERS, order).then(response => ({
         dataType: DataTypes.ORDERS, data: response.data
