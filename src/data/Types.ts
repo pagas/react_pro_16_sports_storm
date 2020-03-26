@@ -57,9 +57,43 @@ export type CartItem = {
 }
 
 export interface SystemState {
+    products: Product[],
+    products_total: number,
+    products_params: any,
+    categories: string[],
     cart: CartItem[],
     cartItems: number
-    cartPrice: number
+    cartPrice: number,
+    pageSize: number,
+    sortKey: string,
+    order: any
 }
 
+
+export interface LoadDataAction {
+    type: typeof ActionTypes.DATA_LOAD,
+    payload: {
+        data: any,
+        params: any,
+        dataType: string,
+        total: number
+    }
+}
+
+export interface SetDataSortPropertyAction {
+    type: typeof ActionTypes.DATA_SET_SORT_PROPERTY,
+    payload: string
+}
+
+export interface SetDataPageSizeAction {
+    type: typeof ActionTypes.DATA_SET_PAGE_SIZE,
+    payload: number
+}
+
+export interface DataStoreAction {
+    type: typeof ActionTypes.DATA_STORE,
+    payload: { dataType:string, data: any }
+}
+
+export type DataAction = LoadDataAction | SetDataPageSizeAction | SetDataSortPropertyAction | DataStoreAction
 
