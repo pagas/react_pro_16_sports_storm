@@ -1,5 +1,3 @@
-import * as faker from "faker";
-
 export const DataTypes = {
     PRODUCTS: "products",
     CATEGORIES: "categories",
@@ -26,7 +24,7 @@ export type Product = {
     price: number
 }
 
-interface AddToCartAction {
+export interface AddToCartAction {
     type: typeof ActionTypes.CART_ADD,
     payload: {
         product: Product,
@@ -34,7 +32,7 @@ interface AddToCartAction {
     }
 }
 
-interface UpdateCartQuantity {
+export interface UpdateCartQuantity {
     type: typeof ActionTypes.CART_UPDATE,
     payload: {
         product: Product
@@ -42,16 +40,26 @@ interface UpdateCartQuantity {
     }
 }
 
-interface RemoveFromCartAction {
+export interface RemoveFromCartAction {
     type: typeof ActionTypes.CART_REMOVE,
     payload: Product
 }
 
-
-interface ClearCartAction {
-    type: typeof ActionTypes.CART_CLEAR,
+export interface ClearCartAction {
+    type: typeof ActionTypes.CART_CLEAR
 }
 
 export type CartActionTypes = AddToCartAction | UpdateCartQuantity | RemoveFromCartAction | ClearCartAction;
+
+export type CartItem = {
+    product: Product,
+    quantity: number
+}
+
+export interface SystemState {
+    cart: CartItem[],
+    cartItems: number
+    cartPrice: number
+}
 
 
