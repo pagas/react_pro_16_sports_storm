@@ -1,3 +1,5 @@
+import * as faker from "faker";
+
 export const DataTypes = {
     PRODUCTS: "products",
     CATEGORIES: "categories",
@@ -15,3 +17,41 @@ export const ActionTypes = {
     CART_REMOVE: "cart_remove",
     CART_CLEAR: "cart_clear"
 };
+
+export type Product = {
+    id: number,
+    name: string
+    category: string
+    description: string
+    price: number
+}
+
+interface AddToCartAction {
+    type: typeof ActionTypes.CART_ADD,
+    payload: {
+        product: Product,
+        quantity: number
+    }
+}
+
+interface UpdateCartQuantity {
+    type: typeof ActionTypes.CART_UPDATE,
+    payload: {
+        product: Product
+        quantity: number
+    }
+}
+
+interface RemoveFromCartAction {
+    type: typeof ActionTypes.CART_REMOVE,
+    payload: Product
+}
+
+
+interface ClearCartAction {
+    type: typeof ActionTypes.CART_CLEAR,
+}
+
+export type CartActionTypes = AddToCartAction | UpdateCartQuantity | RemoveFromCartAction | ClearCartAction;
+
+
