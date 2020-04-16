@@ -1,4 +1,4 @@
-import {createStore, applyMiddleware} from 'redux';
+import {createStore, applyMiddleware, combineReducers} from 'redux';
 import {ShopReducer} from "./ShopReducers";
 import {CartReducer} from "./CartReducers";
 import {CommonReducer} from "./CommonReducer";

@@ -1,7 +1,7 @@
 import {ActionTypes, SystemState, Product, CartItem} from "./Types";
 import {CartActionTypes, AddToCartAction, UpdateCartQuantity, RemoveFromCartAction} from "./Types";
 
-export const CartReducer = (storeDate: SystemState, action: CartActionTypes) => {
+export const CartReducer = (storeDate: SystemState, action: CartActionTypes) : SystemState => {
     let newStore:SystemState = {cart:[], cartItems: 0, cartPrice: 0, ...storeDate};
 
     switch (action.type) {

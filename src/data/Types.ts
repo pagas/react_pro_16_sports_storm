@@ -1,7 +1,7 @@
-export const DataTypes = {
-    PRODUCTS: "products",
-    CATEGORIES: "categories",
-    ORDERS: "orders"
+export enum DataTypes {
+    PRODUCTS = "products",
+    CATEGORIES = "categories",
+    ORDERS = "orders"
 };
 
 export const ActionTypes = {
@@ -92,8 +92,10 @@ export interface SetDataPageSizeAction {
 
 export interface DataStoreAction {
     type: typeof ActionTypes.DATA_STORE,
-    payload: { dataType:string, data: any }
+    payload: { dataType: string, data: any }
 }
 
-export type DataAction = LoadDataAction | SetDataPageSizeAction | SetDataSortPropertyAction | DataStoreAction
+export type DataActionTypes = LoadDataAction | SetDataPageSizeAction | SetDataSortPropertyAction | DataStoreAction
+export type AllActions = DataActionTypes | CartActionTypes;
 
+export type ReducerFunc = (storeData: SystemState, action: AllActions) => SystemState
