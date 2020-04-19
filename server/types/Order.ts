@@ -7,8 +7,9 @@ export type Order = {
     city: string
     country: string
     shipped: boolean
-    products: {
-        quantity: number,
-        productId: number
-    }[]
+    products: OrderProduct[]
+}
+export type OrderProduct = {
+    quantity: number
+    productId: number
 }
